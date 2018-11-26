@@ -1,0 +1,27 @@
+{
+  "name": "opening-hours-cdn",
+  "version": "1.0.0",
+  "description": "An API wrapper for the opening-hours API for stad.gent",
+  "main": "scripts",
+  "scripts": {
+    "start": "parcel src/index.js -o opening-hours-cdn.js",
+    "build": "parcel build src/index.js -o opening-hours-cdn.v1.js"
+  },
+  "keywords": [
+    "api",
+    "es7"
+  ],
+  "author": "Helena Standaert <helena.standaert@digipolis.gent>",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.6",
+    "parcel-bundler": "^1.10.3",
+    "parcel-plugin-eslint": "^1.0.4"
+  },
+  "dependencies": {
+    "promise-polyfill": "8.1.0",
+    "whatwg-fetch": "^3.0.0"
+  }
+}
