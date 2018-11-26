@@ -1,15 +1,15 @@
 /* eslint-env jest */
 
-import channels from './channels'
+import channel from './channel'
 
 jest.mock('../utils/request')
 
 describe('get channels for a service', () => {
   it('should return an array with channels', async () => {
     expect.assertions(2)
-    const data = await channels('2690')
+    const data = await channel('2690', '2102')
     
-    expect(data).toBeInstanceOf(Array)
-    expect(data.length).toBe(2)
+    expect(data).toBeInstanceOf(Object)
+    expect(data.id).toBe(2102)
   })
 })

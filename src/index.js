@@ -21,3 +21,4 @@ function OpeningHoursApi(options = {}) {
 OpeningHoursApi.prototype = methods
 window.OpeningHoursApi = OpeningHoursApi
 
+export default OpeningHoursApi

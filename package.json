@@ -1,12 +1,12 @@
 {
-  "name": "opening-hours-api",
-  "version": "1.0.0",
+  "name": "@digipolis-gent/opening-hours-api",
+  "version": "0.0.1",
   "description": "An API wrapper for the opening-hours API for stad.gent",
   "main": "scripts",
   "scripts": {
     "test": "jest",
     "start": "parcel src/index.js -o opening-hours-api.js",
-    "build": "parcel build src/index.js -o opening-hours-api.v1.js"
+    "build": "parcel build src/index.js -o opening-hours-api.min.js"
   },
   "keywords": [
     "api",
