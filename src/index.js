@@ -4,7 +4,6 @@
  */
 
 import 'promise-polyfill/src/polyfill'
-import 'whatwg-fetch'
 
 import methods from './methods'
 import config from './config'

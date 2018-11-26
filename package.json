@@ -1,11 +1,12 @@
 {
-  "name": "opening-hours-cdn",
+  "name": "opening-hours-api",
   "version": "1.0.0",
   "description": "An API wrapper for the opening-hours API for stad.gent",
   "main": "scripts",
   "scripts": {
-    "start": "parcel src/index.js -o opening-hours-cdn.js",
-    "build": "parcel build src/index.js -o opening-hours-cdn.v1.js"
+    "test": "jest",
+    "start": "parcel src/index.js -o opening-hours-api.js",
+    "build": "parcel build src/index.js -o opening-hours-api.v1.js"
   },
   "keywords": [
     "api",
@@ -17,6 +18,9 @@
     "@babel/core": "^7.1.6",
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.1.6",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "jest": "^23.6.0",
     "parcel-bundler": "^1.10.3",
     "parcel-plugin-eslint": "^1.0.4"
   },

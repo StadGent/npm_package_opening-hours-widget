@@ -1,8 +1,6 @@
-import utils from '../utils'
+import request from '../utils/request'
 
-const {request} = utils
-
-export default async function channels (serviceId) {
-  let response = await request(`services/${serviceId}/channels`)
+export default async function channels (serviceId, format = 'json', options = {}) {
+  let response = await request(`services/${serviceId}/channels`, format, options)
   return response.json()
 }
