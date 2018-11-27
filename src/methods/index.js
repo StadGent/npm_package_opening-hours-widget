@@ -1,7 +1,9 @@
-import channel from './channel'
-import channels from './channels'
+import fetchChannel from './fetchChannel'
+import fetchChannels from './fetchChannels'
+import fetchServiceOpeningHours from './fetchServiceOpeningHours'
 
 export default {
-  channel,
-  channels
+  fetchChannel,
+  fetchChannels,
+  fetchServiceOpeningHours
 }

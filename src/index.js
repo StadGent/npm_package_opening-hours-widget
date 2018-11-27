@@ -12,7 +12,14 @@ import {ENDPOINT, ENDPOINT_TEST} from './constants'
  * @constructor
  */
 function OpeningHoursApi(options = {}) {
-  this.endpoint = options.debug ? ENDPOINT_TEST : ENDPOINT
+  this.options = Object.assign({
+    endpoint: ENDPOINT,
+    defaultFormat: 'html'
+  }, options)
+
+  if (options.debug) {
+    this.options.endpoint = ENDPOINT_TEST
+  }
 }
 
 OpeningHoursApi.prototype = methods

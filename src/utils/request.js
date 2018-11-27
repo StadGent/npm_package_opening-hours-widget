@@ -23,6 +23,10 @@ async function request(uri, format, options = {}) {
     options.headers.set('Accept', 'application/json')
   }
 
+  if(format === 'html') {
+    options.headers.set('Accept', 'text/html')
+  }
+
   return await fetch(`${options.endpoint}/${uri}`, options)
 }
 
