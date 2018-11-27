@@ -1,5 +1,5 @@
 # Opening Hours API wrapper
-This library serves as a wrapper for the openingsuren.gent.be API. This 
+This library serves as a wrapper for the [openingsuren.gent.be](http://openingsuren.gent.be) API. 
 
 ## Installation
 ```bash

@@ -6,19 +6,15 @@
 import 'promise-polyfill/src/polyfill'
 
 import methods from './methods'
-import config from './config'
+import {ENDPOINT, ENDPOINT_TEST} from './constants'
 
 /**
  * @constructor
  */
 function OpeningHoursApi(options = {}) {
-  Object.keys(options).forEach(key => {
-    config.set(key, options[key])
-  })
-  return this
+  this.endpoint = options.debug ? ENDPOINT_TEST : ENDPOINT
 }
 
 OpeningHoursApi.prototype = methods
-window.OpeningHoursApi = OpeningHoursApi
 
 export default OpeningHoursApi

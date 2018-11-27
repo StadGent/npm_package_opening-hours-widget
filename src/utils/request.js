@@ -1,5 +1,5 @@
-import config from '../config'
 import {fetch, Headers} from 'whatwg-fetch'
+import {ENDPOINT} from '../constants'
 
 /**
  *
@@ -11,8 +11,9 @@ import {fetch, Headers} from 'whatwg-fetch'
  *    Options passed in to the fetchAPI.
  * @returns {Promise<boolean>}
  */
-export default async function request(uri, format, options = {}) {
+async function request(uri, format, options = {}) {
   const _defaults = {
+    endpoint: ENDPOINT,
     headers: new Headers()
   }
 
@@ -22,5 +23,7 @@ export default async function request(uri, format, options = {}) {
     options.headers.set('Accept', 'application/json')
   }
 
-  return await fetch(`${config.get('endpoint')}/${uri}`, options)
+  return await fetch(`${options.endpoint}/${uri}`, options)
 }
+
+export default request

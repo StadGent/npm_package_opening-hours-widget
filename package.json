@@ -2,11 +2,12 @@
   "name": "@digipolis-gent/opening-hours-api",
   "version": "0.0.1",
   "description": "An API wrapper for the opening-hours API for stad.gent",
-  "main": "scripts",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest",
-    "start": "parcel src/index.js -o opening-hours-api.js",
-    "build": "parcel build src/index.js -o opening-hours-api.min.js"
+    "start": "jest --watch",
+    "build": "rollup -c",
+    "lint": "eslint ./src"
   },
   "keywords": [
     "api",
@@ -18,14 +19,26 @@
     "@babel/core": "^7.1.6",
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.1.6",
+    "@babel/runtime": "^7.1.5",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
+    "eslint": "^5.9.0",
     "jest": "^23.6.0",
-    "parcel-bundler": "^1.10.3",
-    "parcel-plugin-eslint": "^1.0.4"
+    "rollup": "^0.67.3",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^3.4.0"
   },
   "dependencies": {
     "promise-polyfill": "8.1.0",
     "whatwg-fetch": "^3.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StadGent/npm_package_opening-hours-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/StadGent/npm_package_opening-hours-api/issues"
+  },
+  "homepage": "https://github.com/StadGent/npm_package_opening-hours-api#readme"
 }
