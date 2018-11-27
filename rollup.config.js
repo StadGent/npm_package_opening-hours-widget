@@ -4,6 +4,8 @@ import babel from 'rollup-plugin-babel'
 import { uglify } from 'rollup-plugin-uglify'
 import replace from 'rollup-plugin-replace'
 
+process.env.BUILD = process.env.BUILD || 'production'
+
 module.exports = {
   input: 'src/index.js',
   output: {
