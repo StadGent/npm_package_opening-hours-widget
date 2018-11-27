@@ -11,10 +11,6 @@ import request from '../utils/request'
  * @returns {Promise<*|Promise<*>|Promise<any>>}
  */
 export default async function channels (serviceId, options = {}) {
-  if (!options.endpoint) {
-    options.endpoint = this.endpoint
-  }
-
   let response = await request(`services/${serviceId}/channels`, 'json', options)
   return response.json()
 }

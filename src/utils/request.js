@@ -1,5 +1,5 @@
 import {fetch, Headers} from 'whatwg-fetch'
-import {ENDPOINT} from '../constants'
+import config from '../config'
 
 /**
  *
@@ -13,7 +13,6 @@ import {ENDPOINT} from '../constants'
  */
 async function request(uri, format, options = {}) {
   const _defaults = {
-    endpoint: ENDPOINT,
     headers: new Headers()
   }
 
@@ -27,7 +26,7 @@ async function request(uri, format, options = {}) {
     options.headers.set('Accept', 'text/html')
   }
 
-  return await fetch(`${options.endpoint}/${uri}`, options)
+  return await fetch(`${config('endpoint')}/${uri}`, options)
 }
 
 export default request

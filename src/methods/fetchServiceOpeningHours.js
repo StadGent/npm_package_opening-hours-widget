@@ -16,7 +16,7 @@ import { queryString } from '../utils/url'
  *  Format in which the resources should be returned.
  * @returns {Promise<*|Promise<*>|Promise<any>>}
  */
-export default async function fetchServiceOpeningHours (serviceId, userOptions = {}, format = this.options.defaultFormat) {
+export default async function fetchServiceOpeningHours (serviceId, userOptions = {}, format = 'html') {
   const options = merge({
     type: 'day',
     parameters: {
@@ -24,8 +24,8 @@ export default async function fetchServiceOpeningHours (serviceId, userOptions =
     }
   }, userOptions)
 
-  if (!options.endpoint) {
-    options.endpoint = this.options.endpoint
+  if (options.type && !['day', 'month', 'year', ''].includes(options.type)) {
+
   }
 
   let response = await request(`services/${serviceId}/openinghours/${options.type}?${queryString(options.parameters)}`, format, options)

@@ -5,7 +5,7 @@ import fetchChannels from './fetchChannels'
 jest.mock('../utils/request')
 
 describe('get fetchChannels for a service', () => {
-  it('should return an array with fetchChannels', async () => {
+  it('should return an array with channels', async () => {
     expect.assertions(2)
     const data = await fetchChannels('2690')
     

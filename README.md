@@ -6,6 +6,13 @@ This library serves as a wrapper for the [openingsuren.gent.be](http://openingsu
 npm install opening-hours-api
 ``` 
 
+## Development
+```bash
+npm start
+``` 
+
+Extensive API documentation can be found on the [wiki]().
+
 ## Usage
 ### CommonJS
 ```javascript
