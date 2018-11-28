@@ -1,15 +1,13 @@
 /**
  * @file Manages the configuration
  */
-/* global ENVIRONMENT */
-import {ENDPOINT, ENDPOINT_TEST} from './constants'
 
 /**
  * @type Object
  * @private
  */
 let _config = {
-  endpoint: ENVIRONMENT === 'production' ? ENDPOINT : ENDPOINT_TEST,
+  endpoint: 'http://openingsuren.gent.be/api/v1',
   defaultFormat: 'html'
 }
 

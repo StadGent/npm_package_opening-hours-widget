@@ -30,7 +30,16 @@ async function request(uri, format, options = {}) {
     options.headers.set('Accept', 'text/html')
   }
 
-  return await fetch(`${config('endpoint')}/${uri}`, options)
+  return await fetch(`${options.endpoint || config('endpoint')}/${uri}`, options)
+    .then(function checkStatus(response) {
+      if (response.status >= 200 && response.status < 300) {
+        return response
+      } else {
+        let error = new Error(response.statusText)
+        error.response = response
+        throw error
+      }
+    })
 }
 
 export default request

@@ -30,6 +30,10 @@ export function now(formatted = true) {
  *  Formatted date.
  */
 export function formatDate(date) {
+  if(!(date instanceof Date)) {
+    throw new TypeError('Provide a validate JS Date Object.')
+  }
+
   return date.toLocaleDateString('fr-CA', {
     year: '2-digit',
     month: '2-digit',

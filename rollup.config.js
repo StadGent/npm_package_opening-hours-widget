@@ -25,10 +25,7 @@ module.exports = {
       exclude: 'node_modules/**', // only transpile our source code
       runtimeHelpers: true,
     }),
-    process.env.BUILD === 'production' && uglify(),
-    replace({
-      ENVIRONMENT: JSON.stringify(process.env.BUILD.toLowerCase())
-    })
+    process.env.BUILD === 'production' && uglify()
   ]
 }
 

@@ -7,7 +7,9 @@ const request = (url, format) => new Promise((resolve, reject) => {
 
   // Load json data from a file in de subfolder for mock data
   fs.readFile(`./src/__mockData__/${fileName}.${format}`, 'utf8', (err, data) => {
-    if (err) reject(err)
+    if (err) {
+      reject(new Error(`Unprocessable Entity: ${err.toString()}`))
+    }
 
     let myResponse = new Response(data)
     resolve(myResponse)

@@ -8,6 +8,8 @@ import request from '../utils/request'
  *
  * @param {string} serviceId
  *  ID of the service that should be requested from the API
+ * @example
+ * api.fetchChannels(999).then(console.log) // logs response to the console
  * @param {Object} options
  *    Options passed in to the fetch API.
  *    See https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters for all available options.

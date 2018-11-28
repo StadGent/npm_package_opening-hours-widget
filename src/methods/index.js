@@ -3,10 +3,10 @@
  */
 import fetchChannel from './fetchChannel'
 import fetchChannels from './fetchChannels'
-import fetchServiceOpeningHours from './fetchServiceOpeningHours'
+import fetchOpeningHours from './fetchOpeningHours'
 
 export default {
   fetchChannel,
   fetchChannels,
-  fetchServiceOpeningHours
+  ...fetchOpeningHours
 }

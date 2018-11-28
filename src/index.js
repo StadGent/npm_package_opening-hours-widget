@@ -11,7 +11,7 @@ import methods from './methods'
  *  An object with options that change the behavior of the package
  * @param {string} [options.endpoint]
  *  The API endpoint that is used for all API calls
- * @constructor
+ * @class
  */
 function OpeningHoursApi(options = {}) {
   setConfig(options)
