@@ -49,6 +49,26 @@ describe('should fetch openinghours for a service', () => {
       Object.keys(data).forEach(key => expect(data[key].openinghours).toHaveLength(7))
     })
   })
+
+  describe('for a month', () => {
+    it('should return data in HTML format', async () => {
+      expect.assertions(2)
+      const data = await api.fetchOpeningHoursForMonth(serviceId, false, options)
+      let parsed = parser.parseFromString(data, 'text/html')
+
+      expect(typeof data).toBe('string')
+      expect(parsed.querySelectorAll('.openinghours--details')).toHaveLength(60) // 30 days * 2 channels
+    })
+
+    it('should return data in JSON format', async () => {
+      expect.assertions(4)
+      const data = await api.fetchOpeningHoursForMonth(serviceId, false, options, 'json')
+
+      expect(data).toBeInstanceOf(Array)
+      expect(data).toHaveLength(2)
+      Object.keys(data).forEach(key => expect(data[key].openinghours).toHaveLength(30))
+    })
+  })
 })
 
 describe('should fetch openinghours for a channel', () => {
@@ -88,6 +108,26 @@ describe('should fetch openinghours for a channel', () => {
       expect(data).toBeInstanceOf(Object)
       expect(data.channelId).toBe(channelId)
       expect(data.openinghours).toHaveLength(7) // 7 days * 1 channel
+    })
+  })
+
+  describe('for a month', () => {
+    it('should return data in HTML format', async () => {
+      expect.assertions(2)
+      const data = await api.fetchOpeningHoursForMonth(serviceId, channelId, options)
+      let parsed = parser.parseFromString(data, 'text/html')
+
+      expect(typeof data).toBe('string')
+      expect(parsed.querySelectorAll('.openinghours--details')).toHaveLength(30) // 30 days * 1 channel
+    })
+
+    it('should return data in JSON format', async () => {
+      expect.assertions(3)
+      const data = await api.fetchOpeningHoursForMonth(serviceId, channelId, options, 'json')
+
+      expect(data).toBeInstanceOf(Object)
+      expect(data.channelId).toBe(channelId)
+      expect(data.openinghours).toHaveLength(30) // 30 days * 1 channel
     })
   })
 })

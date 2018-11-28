@@ -107,8 +107,38 @@ export async function fetchOpeningHoursForWeek() {
   return await fetchOpeningHours(...arguments)
 }
 
+/**
+ * Fetch the opening hours for a month
+ *
+ * @param {string} serviceId
+ *  ID of the service that should be requested from the API.
+ * @param {string} [channelId=false]
+ *  ID of the channel that should be requested from the API.
+ * @param {Object} [userOptions]
+ *  Options passed in to the fetch API.
+ *  See https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters for all available options.
+ * @param {string} [userOptions.type]
+ *  Type of widget that is returned. This is only relevant when the format is `html`.
+ * @param {string} [userOptions.parameters]
+ *  Object with key-value pairs that are added to the API call as GET parameters.
+ * @param {string} [format]
+ *  Format in which the resources should be returned.
+ * @returns {Promise<*|Promise<*>|Promise<any>>}
+ */
+export async function fetchOpeningHoursForMonth() {
+  if (arguments[2]) {
+    /** @type Object */
+    arguments[2] = merge({
+      type: 'month'
+    }, arguments[2])
+  }
+
+  return await fetchOpeningHours(...arguments)
+}
+
 export default {
   fetchOpeningHours,
   fetchOpeningHoursForDate,
-  fetchOpeningHoursForWeek
+  fetchOpeningHoursForWeek,
+  fetchOpeningHoursForMonth
 }
