@@ -1,14 +1,18 @@
+/**
+ * @file Utility function that sends a request to the opening hours API
+ */
 import {fetch, Headers} from 'whatwg-fetch'
 import config from '../config'
 
 /**
  *
  * @param uri
- *    Unprefixed uri to which the request should be done
+ *  Unprefixed uri to which the request should be done
  * @param {String} format
- *    Format in which the data should be returned. Either 'html' or 'json'.
+ *  Format in which the data should be returned. Either 'html' or 'json'.
  * @param {Object} options
- *    Options passed in to the fetchAPI.
+ *  Options passed in to the fetch API.
+ *  See https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters for all available options.
  * @returns {Promise<boolean>}
  */
 async function request(uri, format, options = {}) {

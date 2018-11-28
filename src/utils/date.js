@@ -1,4 +1,10 @@
 /**
+ * @file Utility functions for modification of JS date objects.
+ */
+
+/**
+ * Get the current date (without time information)
+ *
  * @param {Boolean} formatted
  *  Whether or not the return value should be formatted
  * @return {Date|string}
@@ -6,6 +12,8 @@
  */
 export function now(formatted = true) {
   let date = new Date()
+  date.setHours(0, 0, 0, 0) // reset the hour to 00:00:00.00
+
   if(formatted) {
     date = formatDate(date)
   }

@@ -1,13 +1,16 @@
+/**
+ * @file Fetches all channels for a given service
+ */
 import request from '../utils/request'
+
 /**
  * Fetch the opening hours for a specific service and/or channel
  *
  * @param {string} serviceId
  *  ID of the service that should be requested from the API
- * @param {Object} [options]
- *  Object of key-value pairs that configure the request.
- * @param {string} options.endpoint
- *  API endpoint
+ * @param {Object} options
+ *    Options passed in to the fetch API.
+ *    See https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters for all available options.
  * @returns {Promise<*|Promise<*>|Promise<any>>}
  */
 export default async function channels (serviceId, options = {}) {

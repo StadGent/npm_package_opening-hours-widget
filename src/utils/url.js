@@ -1,4 +1,8 @@
 /**
+ * @file Utility functions for anything related to the URL (such as reading, decoding, encoding parameters, etc.)
+ */
+
+/**
  * Transform an object of key-value pairs to a valid querystring
  *
  * @param {Object} parameters
