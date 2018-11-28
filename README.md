@@ -37,3 +37,5 @@ let api = new OpeningHoursApi(options);
 let api = new OpeningHoursApi(options);
 ```
 
+## Contributing
+Thanks for your interest in contributing! [Get started here](CONTRIBUTING.md).
