@@ -2,14 +2,15 @@
   "name": "@digipolis-gent/opening-hours-api",
   "version": "0.0.1",
   "description": "An API wrapper for the opening-hours API for stad.gent",
-  "main": "src/index.js",
+  "main": "dist/opening-hours-api.js",
   "scripts": {
     "test": "jest",
     "start": "jest --watch",
-    "build": "rollup -c",
-    "build:test": "npm run build -- --environment BUILD:test",
-    "build:prod": "npm run build -- --environment BUILD:production",
-    "lint": "eslint ./src"
+    "build": "npm run-script build:test && npm run-script build:prod",
+    "build:test": "rollup -c --environment BUILD:test",
+    "build:prod": "rollup -c --environment BUILD:production",
+    "lint": "eslint ./src",
+    "postinstall": "npm run-script build"
   },
   "keywords": [
     "api",
