@@ -18,7 +18,7 @@ describe('should fetch openinghours for a service', () => {
       let parsed = parser.parseFromString(data, 'text/html')
 
       expect(typeof data).toBe('string')
-      expect(parsed.querySelectorAll('.openinghours').length).toBe(2)
+      expect(parsed.querySelectorAll('.openinghours--details')).toHaveLength(2) // 1 day * 2 channels
     })
 
     it('should return data in JSON format', async () => {
@@ -26,7 +26,27 @@ describe('should fetch openinghours for a service', () => {
       const data = await api.fetchOpeningHoursForDate(serviceId, false, options, 'json')
 
       expect(typeof data).toBe('object')
-      expect(data.length).toBe(2)
+      expect(data).toHaveLength(2)
+    })
+  })
+
+  describe('for a week from monday to friday', () => {
+    it('should return data in HTML format', async () => {
+      expect.assertions(2)
+      const data = await api.fetchOpeningHoursForWeek(serviceId, false, options)
+      let parsed = parser.parseFromString(data, 'text/html')
+
+      expect(typeof data).toBe('string')
+      expect(parsed.querySelectorAll('.openinghours--details')).toHaveLength(14) // 7 days * 2 channels
+    })
+
+    it('should return data in JSON format', async () => {
+      expect.assertions(4)
+      const data = await api.fetchOpeningHoursForWeek(serviceId, false, options, 'json')
+
+      expect(data).toBeInstanceOf(Array)
+      expect(data).toHaveLength(2)
+      Object.keys(data).forEach(key => expect(data[key].openinghours).toHaveLength(7))
     })
   })
 })
@@ -39,7 +59,7 @@ describe('should fetch openinghours for a channel', () => {
       let parsed = parser.parseFromString(data, 'text/html')
 
       expect(typeof data).toBe('string')
-      expect(parsed.querySelectorAll('.openinghours').length).toBe(1)
+      expect(parsed.querySelectorAll('.openinghours--details')).toHaveLength(1)
     })
 
     it('should return data in JSON format', async () => {
@@ -48,6 +68,26 @@ describe('should fetch openinghours for a channel', () => {
 
       expect(typeof data).toBe('object')
       expect(data.channelId).toBe(channelId)
+    })
+  })
+
+  describe('for a week from monday to friday', () => {
+    it('should return data in HTML format', async () => {
+      expect.assertions(2)
+      const data = await api.fetchOpeningHoursForWeek(serviceId, channelId, options)
+      let parsed = parser.parseFromString(data, 'text/html')
+
+      expect(typeof data).toBe('string')
+      expect(parsed.querySelectorAll('.openinghours--details')).toHaveLength(7) // 7 days * 1 channel
+    })
+
+    it('should return data in JSON format', async () => {
+      expect.assertions(3)
+      const data = await api.fetchOpeningHoursForWeek(serviceId, channelId, options, 'json')
+
+      expect(data).toBeInstanceOf(Object)
+      expect(data.channelId).toBe(channelId)
+      expect(data.openinghours).toHaveLength(7) // 7 days * 1 channel
     })
   })
 })
