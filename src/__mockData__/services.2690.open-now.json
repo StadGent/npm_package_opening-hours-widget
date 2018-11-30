@@ -1,0 +1,22 @@
+[
+  {
+    "channel": "php7 test",
+    "channelId": 2097,
+    "channelTypeLabel": "Algemeen",
+    "channelTypeId": 2,
+    "openNow": {
+      "label": "closed",
+      "status": false
+    }
+  },
+  {
+    "channel": "Op afspraak",
+    "channelId": 2102,
+    "channelTypeLabel": "Na afspraak",
+    "channelTypeId": 1,
+    "openNow": {
+      "label": "open",
+      "status": true
+    }
+  }
+]

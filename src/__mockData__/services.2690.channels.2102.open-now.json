@@ -1,0 +1,10 @@
+{
+  "channel": "Op afspraak",
+  "channelId": 2102,
+  "channelTypeLabel": "Na afspraak",
+  "channelTypeId": 1,
+  "openNow": {
+    "label": "open",
+    "status": true
+  }
+}

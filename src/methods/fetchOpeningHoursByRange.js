@@ -7,7 +7,7 @@ import { formatDate } from '../utils/date'
 import { queryString } from '../utils/url'
 
 /**
- * Fetch the opening hours for a specific service and/or channel
+ * Fetch the opening hours for a specific service and/or channel based on a specified range
  *
  * @param {string|Date} from
  *  Start date for the range for which opening hours should be retrieved
@@ -25,7 +25,6 @@ import { queryString } from '../utils/url'
  * @param {string} [userOptions.parameters]
  *  Object with key-value pairs that are added to the API call as GET parameters.
  * @returns {Promise<*|Promise<*>|Promise<any>>}
- * @private
  */
 export default async function fetchOpeningHoursByRange (from, until, serviceId, channelId = false, format = 'html', userOptions = {}) {
   /** @type string */

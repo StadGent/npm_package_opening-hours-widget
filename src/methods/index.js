@@ -5,10 +5,12 @@ import fetchChannel from './fetchChannel'
 import fetchChannels from './fetchChannels'
 import fetchOpeningHoursByType from './fetchOpeningHoursByType'
 import fetchOpeningHoursByRange from './fetchOpeningHoursByRange'
+import fetchStatus from './fetchStatus'
 
 export default {
   fetchChannel,
   fetchChannels,
   ...fetchOpeningHoursByType,
-  fetchOpeningHoursByRange
+  fetchOpeningHoursByRange,
+  fetchStatus
 }
