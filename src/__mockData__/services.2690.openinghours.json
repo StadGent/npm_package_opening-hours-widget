@@ -1,0 +1,128 @@
+[
+    {
+        "channel": "php7 test",
+        "channelId": 2097,
+        "channelTypeLabel": "Algemeen",
+        "channelTypeId": 2,
+        "openinghours": [
+            {
+                "date": "2018-11-14",
+                "open": false,
+                "hours": []
+            },
+            {
+                "date": "2018-11-15",
+                "open": false,
+                "hours": []
+            },
+            {
+                "date": "2018-11-16",
+                "open": false,
+                "hours": []
+            },
+            {
+                "date": "2018-11-17",
+                "open": false,
+                "hours": []
+            },
+            {
+                "date": "2018-11-18",
+                "open": false,
+                "hours": []
+            },
+            {
+                "date": "2018-11-19",
+                "open": true,
+                "hours": [
+                    {
+                        "from": "09:00",
+                        "until": "17:00"
+                    }
+                ]
+            },
+            {
+                "date": "2018-11-20",
+                "open": false,
+                "hours": []
+            }
+        ]
+    },
+    {
+        "channel": "Op afspraak",
+        "channelId": 2102,
+        "channelTypeLabel": "Na afspraak",
+        "channelTypeId": 1,
+        "openinghours": [
+            {
+                "date": "2018-11-14",
+                "open": true,
+                "hours": [
+                    {
+                        "from": "09:00",
+                        "until": "17:00"
+                    }
+                ]
+            },
+            {
+                "date": "2018-11-15",
+                "open": true,
+                "hours": [
+                    {
+                        "from": "09:00",
+                        "until": "17:00"
+                    }
+                ]
+            },
+            {
+                "date": "2018-11-16",
+                "open": true,
+                "hours": [
+                    {
+                        "from": "09:00",
+                        "until": "17:00"
+                    }
+                ]
+            },
+            {
+                "date": "2018-11-17",
+                "open": true,
+                "hours": [
+                    {
+                        "from": "09:00",
+                        "until": "12:00"
+                    }
+                ]
+            },
+            {
+                "date": "2018-11-18",
+                "open": true,
+                "hours": [
+                    {
+                        "from": "22:00",
+                        "until": "00:00"
+                    }
+                ]
+            },
+            {
+                "date": "2018-11-19",
+                "open": true,
+                "hours": [
+                    {
+                        "from": "09:00",
+                        "until": "17:00"
+                    }
+                ]
+            },
+            {
+                "date": "2018-11-20",
+                "open": true,
+                "hours": [
+                    {
+                        "from": "09:00",
+                        "until": "17:00"
+                    }
+                ]
+            }
+        ]
+    }
+]
