@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-import api from './fetchOpeningHours'
+import api from './fetchOpeningHoursByType'
 jest.mock('../utils/request')
 
 const serviceId = 2690,
@@ -14,7 +14,7 @@ describe('should fetch openinghours for a service', () => {
   describe('for a specified date', () => {
     it('should return data in HTML format', async () => {
       expect.assertions(2)
-      const data = await api.fetchOpeningHoursForDate(serviceId, false, options)
+      const data = await api.fetchOpeningHoursForDate(serviceId, false, 'html', options)
       let parsed = parser.parseFromString(data, 'text/html')
 
       expect(typeof data).toBe('string')
@@ -23,7 +23,7 @@ describe('should fetch openinghours for a service', () => {
 
     it('should return data in JSON format', async () => {
       expect.assertions(2)
-      const data = await api.fetchOpeningHoursForDate(serviceId, false, options, 'json')
+      const data = await api.fetchOpeningHoursForDate(serviceId, false, 'json', options)
 
       expect(typeof data).toBe('object')
       expect(data).toHaveLength(2)
@@ -33,7 +33,7 @@ describe('should fetch openinghours for a service', () => {
   describe('for a week from monday to friday', () => {
     it('should return data in HTML format', async () => {
       expect.assertions(2)
-      const data = await api.fetchOpeningHoursForWeek(serviceId, false, options)
+      const data = await api.fetchOpeningHoursForWeek(serviceId, false, 'html', options)
       let parsed = parser.parseFromString(data, 'text/html')
 
       expect(typeof data).toBe('string')
@@ -42,7 +42,7 @@ describe('should fetch openinghours for a service', () => {
 
     it('should return data in JSON format', async () => {
       expect.assertions(4)
-      const data = await api.fetchOpeningHoursForWeek(serviceId, false, options, 'json')
+      const data = await api.fetchOpeningHoursForWeek(serviceId, false, 'json', options)
 
       expect(data).toBeInstanceOf(Array)
       expect(data).toHaveLength(2)
@@ -53,7 +53,7 @@ describe('should fetch openinghours for a service', () => {
   describe('for a month', () => {
     it('should return data in HTML format', async () => {
       expect.assertions(2)
-      const data = await api.fetchOpeningHoursForMonth(serviceId, false, options)
+      const data = await api.fetchOpeningHoursForMonth(serviceId, false, 'html', options)
       let parsed = parser.parseFromString(data, 'text/html')
 
       expect(typeof data).toBe('string')
@@ -62,7 +62,7 @@ describe('should fetch openinghours for a service', () => {
 
     it('should return data in JSON format', async () => {
       expect.assertions(4)
-      const data = await api.fetchOpeningHoursForMonth(serviceId, false, options, 'json')
+      const data = await api.fetchOpeningHoursForMonth(serviceId, false, 'json', options)
 
       expect(data).toBeInstanceOf(Array)
       expect(data).toHaveLength(2)
@@ -75,7 +75,7 @@ describe('should fetch openinghours for a channel', () => {
   describe('for a specified date', () => {
     it('should return data in HTML format', async () => {
       expect.assertions(2)
-      const data = await api.fetchOpeningHoursForDate(serviceId, channelId, options)
+      const data = await api.fetchOpeningHoursForDate(serviceId, channelId, 'html', options)
       let parsed = parser.parseFromString(data, 'text/html')
 
       expect(typeof data).toBe('string')
@@ -84,7 +84,7 @@ describe('should fetch openinghours for a channel', () => {
 
     it('should return data in JSON format', async () => {
       expect.assertions(2)
-      const data = await api.fetchOpeningHoursForDate(serviceId, channelId, options, 'json')
+      const data = await api.fetchOpeningHoursForDate(serviceId, channelId, 'json', options)
 
       expect(typeof data).toBe('object')
       expect(data.channelId).toBe(channelId)
@@ -94,7 +94,7 @@ describe('should fetch openinghours for a channel', () => {
   describe('for a week from monday to friday', () => {
     it('should return data in HTML format', async () => {
       expect.assertions(2)
-      const data = await api.fetchOpeningHoursForWeek(serviceId, channelId, options)
+      const data = await api.fetchOpeningHoursForWeek(serviceId, channelId, 'html', options)
       let parsed = parser.parseFromString(data, 'text/html')
 
       expect(typeof data).toBe('string')
@@ -103,7 +103,7 @@ describe('should fetch openinghours for a channel', () => {
 
     it('should return data in JSON format', async () => {
       expect.assertions(3)
-      const data = await api.fetchOpeningHoursForWeek(serviceId, channelId, options, 'json')
+      const data = await api.fetchOpeningHoursForWeek(serviceId, channelId, 'json', options)
 
       expect(data).toBeInstanceOf(Object)
       expect(data.channelId).toBe(channelId)
@@ -114,7 +114,7 @@ describe('should fetch openinghours for a channel', () => {
   describe('for a month', () => {
     it('should return data in HTML format', async () => {
       expect.assertions(2)
-      const data = await api.fetchOpeningHoursForMonth(serviceId, channelId, options)
+      const data = await api.fetchOpeningHoursForMonth(serviceId, channelId, 'html', options)
       let parsed = parser.parseFromString(data, 'text/html')
 
       expect(typeof data).toBe('string')
@@ -123,7 +123,7 @@ describe('should fetch openinghours for a channel', () => {
 
     it('should return data in JSON format', async () => {
       expect.assertions(3)
-      const data = await api.fetchOpeningHoursForMonth(serviceId, channelId, options, 'json')
+      const data = await api.fetchOpeningHoursForMonth(serviceId, channelId, 'json', options)
 
       expect(data).toBeInstanceOf(Object)
       expect(data.channelId).toBe(channelId)
@@ -135,7 +135,7 @@ describe('should fetch openinghours for a channel', () => {
 describe('should handle errors properly', () => {
   it('should throw an error when service doesn\'t exist', async () => {
     expect.assertions(1)
-    await api.fetchOpeningHours(0, false, options)
+    await api.fetchOpeningHoursForDate(0, false, 'html', options)
       .catch(err => {
         expect(err.toString()).toMatch(/Error: Unprocessable Entity/)
       })

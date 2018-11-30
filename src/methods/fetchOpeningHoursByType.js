@@ -9,28 +9,28 @@ import { queryString } from '../utils/url'
 /**
  * Fetch the opening hours for a specific service and/or channel
  *
+ * @param {string} type
+ *  Type of widget you want to have returned. One of `day`, `week`, `month` or `year`
  * @param {string} serviceId
  *  ID of the service that should be requested from the API.
  * @param {string} [channelId=false]
  *  ID of the channel that should be requested from the API.
+ * @param {string} [format]
+ *  Format in which the resources should be returned.
  * @param {Object} [userOptions]
  *  Options passed in to the fetch API.
  *  See https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters for all available options.
- * @param {string} [userOptions.type]
- *  Type of widget that is returned. This is only relevant when the format is `html`.
  * @param {string} [userOptions.parameters]
  *  Object with key-value pairs that are added to the API call as GET parameters.
- * @param {string} [format]
- *  Format in which the resources should be returned.
  * @returns {Promise<*|Promise<*>|Promise<any>>}
+ * @private
  */
-export async function fetchOpeningHours (serviceId, channelId = false, userOptions = {}, format = 'html') {
+export async function fetchOpeningHoursByType (type, serviceId, channelId = false, format = 'html', userOptions = {}) {
   /** @type string */
   let uri = `services/${serviceId}/`
-
+  
   /** @type Object */
   const options = merge({
-    type: 'day',
     parameters: {
       date: now()
     }
@@ -44,7 +44,7 @@ export async function fetchOpeningHours (serviceId, channelId = false, userOptio
     throw new TypeError('Opening Hours \'type\' option should be one of: \'day\', \'week\', \'month\', \'year\'')
   }
 
-  uri += `openinghours/${options.type}?${queryString(options.parameters)}`
+  uri += `openinghours/${type}?${queryString(options.parameters)}`
 
   /** @type Response */
   let response = await request(uri, format, options)
@@ -63,19 +63,17 @@ export async function fetchOpeningHours (serviceId, channelId = false, userOptio
  *  ID of the service that should be requested from the API.
  * @param {string} [channelId=false]
  *  ID of the channel that should be requested from the API.
+ * @param {string} [format]
+ *  Format in which the resources should be returned.
  * @param {Object} [userOptions]
  *  Options passed in to the fetch API.
  *  See https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters for all available options.
- * @param {string} [userOptions.type]
- *  Type of widget that is returned. This is only relevant when the format is `html`.
  * @param {string} [userOptions.parameters]
  *  Object with key-value pairs that are added to the API call as GET parameters.
- * @param {string} [format]
- *  Format in which the resources should be returned.
  * @returns {Promise<*|Promise<*>|Promise<any>>}
  */
 export async function fetchOpeningHoursForDate() {
-  return await fetchOpeningHours(...arguments)
+  return await fetchOpeningHoursByType('day', ...arguments)
 }
 
 /**
@@ -85,26 +83,17 @@ export async function fetchOpeningHoursForDate() {
  *  ID of the service that should be requested from the API.
  * @param {string} [channelId=false]
  *  ID of the channel that should be requested from the API.
+ * @param {string} [format]
+ *  Format in which the resources should be returned.
  * @param {Object} [userOptions]
  *  Options passed in to the fetch API.
  *  See https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters for all available options.
- * @param {string} [userOptions.type]
- *  Type of widget that is returned. This is only relevant when the format is `html`.
  * @param {string} [userOptions.parameters]
  *  Object with key-value pairs that are added to the API call as GET parameters.
- * @param {string} [format]
- *  Format in which the resources should be returned.
  * @returns {Promise<*|Promise<*>|Promise<any>>}
  */
 export async function fetchOpeningHoursForWeek() {
-  if (arguments[2]) {
-    /** @type Object */
-    arguments[2] = merge({
-      type: 'week'
-    }, arguments[2])
-  }
-
-  return await fetchOpeningHours(...arguments)
+  return await fetchOpeningHoursByType('week', ...arguments)
 }
 
 /**
@@ -114,26 +103,17 @@ export async function fetchOpeningHoursForWeek() {
  *  ID of the service that should be requested from the API.
  * @param {string} [channelId=false]
  *  ID of the channel that should be requested from the API.
+ * @param {string} [format]
+ *  Format in which the resources should be returned.
  * @param {Object} [userOptions]
  *  Options passed in to the fetch API.
  *  See https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters for all available options.
- * @param {string} [userOptions.type]
- *  Type of widget that is returned. This is only relevant when the format is `html`.
  * @param {string} [userOptions.parameters]
  *  Object with key-value pairs that are added to the API call as GET parameters.
- * @param {string} [format]
- *  Format in which the resources should be returned.
  * @returns {Promise<*|Promise<*>|Promise<any>>}
  */
 export async function fetchOpeningHoursForMonth() {
-  if (arguments[2]) {
-    /** @type Object */
-    arguments[2] = merge({
-      type: 'month'
-    }, arguments[2])
-  }
-
-  return await fetchOpeningHours(...arguments)
+  return await fetchOpeningHoursByType('month', ...arguments)
 }
 
 /**
@@ -143,30 +123,20 @@ export async function fetchOpeningHoursForMonth() {
  *  ID of the service that should be requested from the API.
  * @param {string} [channelId=false]
  *  ID of the channel that should be requested from the API.
+ * @param {string} [format]
+ *  Format in which the resources should be returned.
  * @param {Object} [userOptions]
  *  Options passed in to the fetch API.
  *  See https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters for all available options.
- * @param {string} [userOptions.type]
- *  Type of widget that is returned. This is only relevant when the format is `html`.
  * @param {string} [userOptions.parameters]
  *  Object with key-value pairs that are added to the API call as GET parameters.
- * @param {string} [format]
- *  Format in which the resources should be returned.
  * @returns {Promise<*|Promise<*>|Promise<any>>}
  */
 export async function fetchOpeningHoursForYear() {
-  if (arguments[2]) {
-    /** @type Object */
-    arguments[2] = merge({
-      type: 'year'
-    }, arguments[2])
-  }
-
-  return await fetchOpeningHours(...arguments)
+  return await fetchOpeningHoursByType('year', ...arguments)
 }
 
 export default {
-  fetchOpeningHours,
   fetchOpeningHoursForDate,
   fetchOpeningHoursForWeek,
   fetchOpeningHoursForMonth,
