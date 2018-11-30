@@ -1,34 +1,34 @@
-# Opening Hours API wrapper
+# Opening Hours Widget
 This library serves as a wrapper for the [openingsuren.gent.be](http://openingsuren.gent.be) API. 
 
 ## Installation
 Install the dependencies 
 ```bash
-npm install @digipolis-gent/opening-hours-api
+npm install @digipolis-gent/opening-hours-widget
 ``` 
 
 ## Usage
 ### CommonJS
 ```javascript
-const OpeningHoursApi = require('@digipolis-gent/opening-hours-api').default;
+const OpeningHoursWidget = require('@digipolis-gent/opening-hours-widget').default;
 
-let api = new OpeningHoursApi(options);
+let ohw = new OpeningHoursWidget(options);
 ```
 ### ES Imports
 ```javascript
-import OpeningHoursApi from '@digipolis-gent/opening-hours-api';
+import OpeningHoursWidget from '@digipolis-gent/opening-hours-widget';
 
-let api = new OpeningHoursApi(options);
+let ohw = new OpeningHoursWidget(options);
 ```
 
 ### Browser
 **HTML**:
 ```html
-<script src="node_modules/@digipolis-gent/opening-hours-api/dist/opening-hours-api.js"></script>
+<script src="node_modules/@digipolis-gent/opening-hours-widget/dist/opening-hours-widget.js"></script>
 ```
 **JS**:
 ```js
-let api = new OpeningHoursApi(options);
+let ohw = new OpeningHoursWidget(options);
 ```
 
 ## Development
@@ -37,8 +37,8 @@ If you'd like to make adjustments to the source code, you can set up this projec
 
 To clone the repo and install dependencies:
 ```bash
-$ git clone git@github.com:StadGent/npm_package_opening-hours-api.git
-$ cd npm_package_opening-hours-api
+$ git clone git@github.com:StadGent/npm_package_opening-hours-widget.git
+$ cd npm_package_opening-hours-widget
 $ npm install
 ```
 
@@ -63,7 +63,7 @@ will run all tests
 
 
 ## Contributing
-Thanks for your interest in contributing! [Get started here](CONTRIBUTING.md).
+Thanks for your interest in contributing! [Get started here](.github/CONTRIBUTING.md).
 
 ## Authors
 - Helena Standaert - *Initial work* - [GitHub](https://github.com/hstandaert)

@@ -1,8 +1,8 @@
 {
-  "name": "@digipolis-gent/opening-hours-api",
+  "name": "@digipolis-gent/opening-hours-widget",
   "version": "0.0.1",
-  "description": "An API wrapper for the opening-hours API for stad.gent",
-  "main": "dist/opening-hours-api.js",
+  "description": "A wrapper for the opening-hours API for stad.gent",
+  "main": "dist/opening-hours-widget.js",
   "scripts": {
     "test": "jest",
     "start": "jest --watch",
@@ -13,8 +13,11 @@
     "postinstall": "npm run-script build"
   },
   "keywords": [
-    "api",
-    "es7"
+    "opening-hours",
+    "es7",
+    "jest",
+    "umd",
+    "gent"
   ],
   "author": "Helena Standaert <helena.standaert@digipolis.gent>",
   "license": "ISC",
@@ -41,10 +44,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/StadGent/npm_package_opening-hours-api.git"
+    "url": "git+https://github.com/StadGent/npm_package_opening-hours-widget.git"
   },
   "bugs": {
-    "url": "https://github.com/StadGent/npm_package_opening-hours-api/issues"
+    "url": "https://github.com/StadGent/npm_package_opening-hours-widget/issues"
   },
-  "homepage": "https://github.com/StadGent/npm_package_opening-hours-api#readme"
+  "homepage": "https://github.com/StadGent/npm_package_opening-hours-widget#readme"
 }

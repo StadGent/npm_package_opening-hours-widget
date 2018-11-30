@@ -1,5 +1,5 @@
 /**
- * @file Opening hours API wrapper.
+ * @file Opening hours wrapper.
  * @author Helena Standaert <helena.standaert@digipolis.gent>
  */
 import 'promise-polyfill/src/polyfill'
@@ -13,9 +13,9 @@ import methods from './methods'
  *  The API endpoint that is used for all API calls
  * @class
  */
-function OpeningHoursApi(options = {}) {
+function OpeningHoursWidget(options = {}) {
   setConfig(options)
 }
 
-OpeningHoursApi.prototype = methods
-export default OpeningHoursApi
+OpeningHoursWidget.prototype = methods
+export default OpeningHoursWidget
