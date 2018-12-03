@@ -1,0 +1,14 @@
+# Files
+.DS_Store
+.npmrc
+.gitignore
+rollup.config.js
+.codeclimate.yml
+.eslintrc.js
+
+# Folders
+.idea
+.cache
+.github
+coverage
+src
