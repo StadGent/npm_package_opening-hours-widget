@@ -12,6 +12,19 @@ let _config = {
 }
 
 /**
+ * Normalize values
+ *
+ * @param value
+ * @private
+ */
+function _normalize(value) {
+  // Remove trailing slash
+  if (/^http(s?):\/\//.test(value)) {
+    return value.replace(/\/$/, '')
+  }
+}
+
+/**
  * Set one or multiple values in the config
  *
  * @param {Object|string} key
@@ -21,7 +34,7 @@ let _config = {
  */
 export function setConfig() {
   if(arguments.length === 2) {
-    _config[arguments[0]] = arguments[1]
+    _config[arguments[0]] = _normalize(arguments[1])
   }
   else if(Object.getPrototypeOf(arguments) === Object.prototype) {
     Object.keys(arguments[0]).forEach(key => {
