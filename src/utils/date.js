@@ -22,21 +22,42 @@ export function now(formatted = true) {
 }
 
 /**
+ * Pad any value with leading characters
+ *
+ * @param {*} value
+ *  Target value that will be padded.
+ * @param {Number} [width]
+ *  Total length of the padded string.
+ * @param {string} [character]
+ *  The text character with which the value will be padded.
+ * @return {string}
+ *  Padded value.
+ */
+export function pad(value, width = 2, character = '0') {
+  value = value + '' // make sure we're dealing with a string here
+  return value.length >= width ? value : new Array(width - value.length + 1).join(character) + value
+}
+
+/**
  * Format a date into YY-MM-DD format.
  *
  * @param {Date} date
  *  JS Date that should be formatted.
+ * @param {string} separator
+ *  Separator of the returned date. '-' by default.
  * @return {string}
  *  Formatted date.
  */
-export function formatDate(date) {
+export function formatDate(date, separator = '-') {
   if(!(date instanceof Date)) {
     throw new TypeError('Provide a validate JS Date Object.')
   }
 
-  return date.toLocaleDateString('fr-CA', {
-    year: '2-digit',
-    month: '2-digit',
-    day: '2-digit'
-  })
+  let formatted = []
+
+  formatted.push(date.getFullYear().toString().slice(-2))
+  formatted.push(pad(date.getMonth() + 1))
+  formatted.push(pad(date.getDate()))
+
+  return formatted.join(separator)
 }
