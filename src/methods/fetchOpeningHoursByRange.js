@@ -34,7 +34,7 @@ export default async function fetchOpeningHoursByRange (from, until, serviceId, 
   const options = merge({
     parameters: {
       from: from instanceof Date ? formatDate(from) : from,
-      until: from instanceof Date ? formatDate(until) : until
+      until: until instanceof Date ? formatDate(until) : until
     }
   }, userOptions)
 

@@ -1,6 +1,6 @@
 {
   "name": "@digipolis-gent/opening-hours-widget",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A wrapper for the opening-hours API for stad.gent",
   "main": "dist/opening-hours-widget.js",
   "scripts": {
@@ -10,7 +10,10 @@
     "build:test": "rollup -c --environment BUILD:test",
     "build:prod": "rollup -c --environment BUILD:production",
     "lint": "eslint ./src",
-    "prepare": "npm run-script build"
+    "prepare": "npm run-script build",
+    "preversion": "npm test",
+    "version": "npm run build",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [
     "opening-hours",
