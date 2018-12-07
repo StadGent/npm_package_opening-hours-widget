@@ -1,0 +1,16 @@
+# Files
+.DS_Store
+.npmrc
+.gitignore
+rollup.config.js
+.codeclimate.yml
+.eslintrc.js
+*.test.js
+
+# Folders
+.idea
+.cache
+.github
+coverage
+__mockData__
+__mocks__
