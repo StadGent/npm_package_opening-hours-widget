@@ -6,7 +6,7 @@ import fetchChannels from './fetchChannels'
 import fetchOpeningHoursByType from './fetchOpeningHoursByType'
 import fetchOpeningHoursByRange from './fetchOpeningHoursByRange'
 import fetchStatus from './fetchStatus'
-import addDayActions from './monthWidgetEvents'
+import addDayActions from '../events/monthWidgetEvents'
 
 export default {
   fetchChannel,
