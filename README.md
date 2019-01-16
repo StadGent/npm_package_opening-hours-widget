@@ -67,3 +67,4 @@ Thanks for your interest in contributing! [Get started here](.github/CONTRIBUTIN
 
 ## Authors
 - Helena Standaert - *Initial work* - [GitHub](https://github.com/hstandaert)
+- Bart Delrue - *Contribution* - [GitHub](https://github.com/delrueba)

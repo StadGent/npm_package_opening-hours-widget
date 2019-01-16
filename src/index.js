@@ -4,7 +4,8 @@
  */
 import 'promise-polyfill/src/polyfill'
 import { setConfig } from './config'
-import methods from './methods'
+import methods from './api'
+import events from './events'
 
 /**
  * @param {Object} [options]
@@ -17,5 +18,8 @@ function OpeningHoursWidget(options = {}) {
   setConfig(options)
 }
 
-OpeningHoursWidget.prototype = methods
+OpeningHoursWidget.prototype = {
+  ...methods,
+  ...events
+}
 export default OpeningHoursWidget

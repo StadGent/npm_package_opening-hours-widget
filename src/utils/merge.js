@@ -2,6 +2,8 @@
  * @file Utility functions for modification of JS date objects
  */
 
+import '../polyfills/object-assign'
+
 /**
  * Merge a `source` object to a `target` recursively
  *
