@@ -7,7 +7,7 @@ jest.mock('../utils/request')
 const serviceId = 2690,
   channelId = 2102,
   options = {
-    endpoint: 'http://openingsuren.web.test.gentgrp.gent.be/api/v1'
+    endpoint: 'https://openingsuren.web.test.gentgrp.gent.be/api/v1'
   }
 
 describe('fetch the status', () => {
