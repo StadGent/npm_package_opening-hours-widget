@@ -30,6 +30,8 @@ async function request(uri, format, options = {}) {
     options.headers.set('Accept', 'text/html')
   }
 
+  options.headers.append('user-key', config('endpoint_key'));
+
   return await fetch(`${options.endpoint || config('endpoint')}/${uri}`, options)
     .then(function checkStatus(response) {
       if (response.status >= 200 && response.status < 300) {
