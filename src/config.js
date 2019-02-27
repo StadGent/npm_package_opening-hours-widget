@@ -7,7 +7,7 @@
  * @private
  */
 let _config = {
-  endpoint: 'http://openingsuren.gent.be/api/v1',
+  endpoint: 'https://openingsuren.gent.be/api/v1',
   endpoint_key: '',
   defaultFormat: 'html'
 }

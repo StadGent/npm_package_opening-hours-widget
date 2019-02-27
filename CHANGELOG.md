@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Updated
+
+- Replaced http endpoint by https.
+
 ### Added
 
 - DMOH-55: Added support to send user-key authentication due to changes in the
