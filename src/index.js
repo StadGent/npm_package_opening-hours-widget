@@ -12,6 +12,8 @@ import events from './events'
  *  An object with options that change the behavior of the package
  * @param {string} [options.endpoint]
  *  The API endpoint that is used for all API calls
+ * @param {string} [options.endpoint_key]
+ *  The API endpoint key that is used for all API calls
  * @class
  */
 function OpeningHoursWidget(options = {}) {

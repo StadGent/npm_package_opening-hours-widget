@@ -8,6 +8,7 @@
  */
 let _config = {
   endpoint: 'http://openingsuren.gent.be/api/v1',
+  endpoint_key: '',
   defaultFormat: 'html'
 }
 
@@ -22,6 +23,8 @@ function _normalize(value) {
   if (/^http(s?):\/\//.test(value)) {
     return value.replace(/\/$/, '')
   }
+
+  return value;
 }
 
 /**
