@@ -1,5 +1,5 @@
 # Opening Hours Widget
-This library serves as a wrapper for the [openingsuren.gent.be](http://openingsuren.gent.be) API. 
+This library serves as a wrapper for the [openingsuren.gent.be](https://openingsuren.gent.be) API. 
 
 ## Installation
 Install the dependencies 
