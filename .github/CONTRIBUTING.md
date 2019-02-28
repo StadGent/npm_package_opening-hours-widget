@@ -64,7 +64,7 @@ git push --follow-tags
 5. Create downloadable archives to include with the release:
   - Run `npm pack` in your CLI in the root of the repository. A `.tgz` archive will be created.
   - Convert the `.tgz` to a `.zip` archive.
-  - Upload both archives to the release page.
+  - Upload both archives to the release page and rename them to `opening-hours-widget.{zip|tgz}`.
 6. Publish the release
 
 #### Publish the npm package
