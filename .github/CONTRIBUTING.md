@@ -38,14 +38,21 @@ git flow release start [<newversion>]
 ```
 
 2. Bump the version in package.json. You could either do this:
-  - **Manually**: Open `package.json` and change the value for the `version` key.
+  - **Manually**: Open `package.json` and change the value for the `version` key. Do the same for `package-lock.json`.
   - **In the CLI** using the [npm-version](https://docs.npmjs.com/cli/version.html) command.
 
 ```bash
-npm version [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease [--preid=<prerelease-id>] | from-git]
+npm --no-git-tag-version version [patch | minor | major]
 ```
 
-3. Finish your release. A new git tag will be created and the release branch will be back-merged into `develop`.
+3. Change the `[Unreleased]` title in changelog to the `<newversion>` alongside the date. You can copy/adapt from previous versions.
+
+4. Commit your changes
+```bash
+git commit -m "Bump to [<newversion>]"
+```
+
+5. Finish your release. A new git tag will be created and the release branch will be back-merged into `develop`.
 ```bash
 git flow release finish [<newversion>]
 ```
