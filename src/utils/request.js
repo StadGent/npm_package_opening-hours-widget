@@ -30,7 +30,9 @@ async function request(uri, format, options = {}) {
     options.headers.set('Accept', 'text/html')
   }
 
-  options.headers.append('user-key', config('endpoint_key'));
+  if (config('endpoint_key')) {
+    options.headers.set('user-key', config('endpoint_key'));
+  }
 
   return await fetch(`${options.endpoint || config('endpoint')}/${uri}`, options)
     .then(function checkStatus(response) {
